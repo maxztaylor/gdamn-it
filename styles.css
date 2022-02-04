@@ -1,0 +1,23 @@
+body {
+    background-color: #ffffff;
+    background-image: url("https://previews.123rf.com/images/lhfgraphics/lhfgraphics1111/lhfgraphics111100010/11547551-pasta-food-seamless-tiled-background-in-vector-format.jpg");
+    background-position: tile;
+    background-size: 250px;
+  }
+  
+  .hero {
+    margin: auto;
+    width: 50%;
+    padding: 30px 100px;
+    background-color: rgb(255, 255, 255, 0);
+    background-image: linear-gradient(90deg, rgb(0, 140, 69, 0.9) 0 33%, rgb(244, 249, 255, 0.9) 33% 66%, rgb(205, 33, 42, 0.9) 66% 100%);
+  }
+  
+  .text-title {
+    font-family: serif;
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  
