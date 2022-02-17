@@ -30,9 +30,17 @@ body {
 
 .piano-form > form {
   margin-left: 100px;
-  line-spacing: 20px;
+  line-height: 20px;
 }
 
 .piano-form > form > input {
   margin-bottom: 15px;
+}
+
+.bird-guessing {
+  margin: 30px auto;
+  width: 50%;
+  background-color: #ffffff;
+  padding: 30px;
+  font-family: sans-serif
 }
