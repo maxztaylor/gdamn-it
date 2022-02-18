@@ -2259,8 +2259,8 @@ const birdNames = [
 ];
 
 let randomNumber = Math.floor(Math.random() * birdCodes.length);
-const answerCode = birdCodes[randomNumber];
-const answerName = birdNames[randomNumber];
+let answerCode = birdCodes[randomNumber];
+let answerName = birdNames[randomNumber];
 
 const answerCodeDisp = document.querySelector(".answerCodeDisp");
 const previousGuesses = document.querySelector(".previousGuesses");
@@ -2324,4 +2324,7 @@ function resetGame() {
     guessField.focus();
     lastResult.style.color = 'black';
     randomNumber = Math.floor(Math.random() * birdCodes.length);
+    answerCode = birdCodes[randomNumber];
+    answerName = birdNames[randomNumber];
+    answerCodeDisp.textContent = 'Code: ' + answerCode;
 }
