@@ -2261,6 +2261,7 @@ const birdNames = [
 let randomNumber = Math.floor(Math.random() * birdCodes.length);
 let answerCode = birdCodes[randomNumber];
 let answerName = birdNames[randomNumber];
+let answerNameClean = answerName.replace('\'','').toLowerCase()
 
 const answerCodeDisp = document.querySelector(".answerCodeDisp");
 const previousGuesses = document.querySelector(".previousGuesses");
@@ -2270,6 +2271,7 @@ const guessSubmit = document.querySelector(".guessSubmit");
 const guessField = document.querySelector(".guessField");
 let guessCount = 1;
 let resetButton;
+let giveUpButton;
 
 guesses.style.whiteSpace = "pre";
 
@@ -2277,6 +2279,7 @@ answerCodeDisp.textContent = 'Code: ' + answerCode;
 
 function checkGuess() {
     const userGuess = guessField.value;
+    const userGuessClean = userGuess.replace('\'', '').toLowerCase()
     if (guessCount == 1) {
         previousGuesses.textContent = 'Previous guesses:';
     }
@@ -2284,13 +2287,20 @@ function checkGuess() {
     if (userGuess.length > 0)
     guesses.textContent = userGuess + '\n' + guesses.textContent;
 
-    if (userGuess.toLowerCase() == answerName.toLowerCase()) {
-        lastResult.textContent = 'Correct!';
+    if (userGuessClean == answerNameClean) {
+        lastResult.textContent = answerName + ' is correct!';
         lastResult.style.color = 'green';
         setGameOver();
     } else {
         lastResult.textContent = 'WRONG!';
         lastResult.style.color = 'red';
+    }
+
+    if (guessCount == 1) {
+        giveUpButton = document.createElement('button');
+        giveUpButton.textContent = 'Give up';
+        document.getElementById("guessForm").appendChild(giveUpButton);
+        giveUpButton.addEventListener('click', giveUp);
     }
 
     guessCount++;
@@ -2308,6 +2318,16 @@ function setGameOver() {
     resetButton.textContent = 'Start new game';
     document.getElementById("guessForm").appendChild(resetButton);
     resetButton.addEventListener('click', resetGame);
+}
+
+function giveUp() {
+    setGameOver();
+    let giveUpArticle = 'a '
+    if (answerName.match('^[aieouAIEOU].*')) {
+        giveUpArticle = 'an '
+    }
+    giveUpButton.parentNode.removeChild(giveUpButton);
+    lastResult.textContent = 'Wow, fine. Just so you know, ' + giveUpArticle + answerName + ' is dead because of you. Great job.'
 }
 
 function resetGame() {
