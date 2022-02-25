@@ -5,6 +5,7 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <script src="birds.js" async></script>
+  <script src="pianoOrder.js" async></script>
 </head>
 
 <body>
@@ -23,18 +24,22 @@
 
   <div class="piano-form">
     <h2 style="text-align: center;">Piano Order Form</h2>
-    <form>
+    <form onsubmit="return false">
       <label for="fname">First name:</label>
-      <input type="text" id="fname" name="fname" required><br>
+      <input type="text" id="fname" name="fname"><br>
 
       <label for="birthday">Birthday:</label>
-      <input type="date" id="birthday" name="birthday" required><br>
-
-      <label for="numpianos">How many pianos do you want?</label>
-      <input type="range" id="numpianos" name="numpianos"><br>
-
-      <button type="button" onclick="alert('Your order has shipped! Tracking #: RA551450016US')">Order Now!</button>
+      <input type="date" id="birthday" name="birthday"><br>
+      <div class="piano-slider">
+        <label for="numpianos">How many pianos do you want?</label>
+        <input class="piano-slider-range" type="range" id="numpianos" name="numpianos" value="0" min="0" max="10000">
+        <span class="piano-slider-value">0</span>
+      </div>
+      <br>
+      <input type="submit" class="piano-order-button" value="Order Now!"/>
+      <p class="orderConfirmation"></p>
     </form>
+
   </div>
 
   <div class="bird-guessing" id="bird-guessing">
@@ -54,5 +59,6 @@
     </div>
   </div>
 </body>
+
 
 </html>
