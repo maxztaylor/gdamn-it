@@ -5,6 +5,7 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <script src="birds.js" async></script>
+  <script src="hats.js" async></script>
   <script src="pianoOrder.js" async></script>
 </head>
 
@@ -39,7 +40,6 @@
       <input type="submit" class="piano-order-button" value="Order Now!"/>
       <p class="orderConfirmation"></p>
     </form>
-
   </div>
 
   <div class="bird-guessing" id="bird-guessing">
@@ -60,5 +60,22 @@
   </div>
 </body>
 
+
+  <div class="hatdle" id="hatdle">
+    <h2 style="text-align: center;">HATDLE (not fun)</h2>
+    <div>
+      <p class="hatPicDisp"></p>
+    </div>
+    <div class="form" id="hatGuessForm">
+      <label for="hatGuessField">Guess a hat: </label>
+      <input type="text" id="hatGuessField" class="hatGuessField" />
+      <input type="submit" value="Submit hat" class="hatGuessSubmit" />
+    </div>
+    <div class="hatResultParas">
+      <p class="hatLastResult"></p>
+      <p class="hatPreviousGuesses"></p>
+      <p class="hatGuesses"></p>
+    </div>
+  </div>
 
 </html>
